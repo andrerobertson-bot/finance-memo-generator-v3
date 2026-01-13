@@ -1,24 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="210mm" height="297mm" viewBox="0 0 210 297">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210mm" height="297mm"
+     viewBox="0 0 210 297"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
 
-  <rect x="0" y="0" width="210" height="175" fill="#ffffff"/>
-  <image href="{{COVER_IMAGE_URL}}"
-         x="0" y="0" width="210" height="175"
-         preserveAspectRatio="xMidYMid meet" />
+  <!-- Background -->
+  <rect width="210" height="297" fill="white"/>
 
-  <rect x="0" y="175" width="210" height="122" fill="#ffffff"/>
+  <!-- Cover Image (autofit, no crop). 
+       Height reduced to better match reference -->
+  <image x="0" y="0"
+         width="210"
+         height="165"
+         preserveAspectRatio="xMidYMid meet"
+         xlink:href="{{COVER_IMAGE_PATH}}"/>
 
-  <!-- Text: absolute mm coords; adjust to match your reference -->
-  <text x="16" y="190" font-family="Times New Roman" font-size="26" font-weight="700" fill="#111">{{mainTitle}}</text>
+  <!-- Text Block Group -->
+  <g fill="#111111" text-anchor="middle">
 
-  <text x="16" y="198" font-family="Times New Roman" font-size="11" fill="#111">{{subOne}}</text>
-  <text x="16" y="207" font-family="Times New Roman" font-size="11" fill="#111">{{subTwo}}</text>
+    <!-- Confidential -->
+    <text x="105" y="185"
+          font-family="Raleway"
+          font-size="6"
+          letter-spacing="1.5">
+      CONFIDENTIAL
+    </text>
 
-  <text x="16" y="224" font-family="Times New Roman" font-size="18" font-weight="700" fill="#111">{{headline}}</text>
-  <text x="16" y="238" font-family="Times New Roman" font-size="14" fill="#111">{{projectName}}</text>
-  <text x="16" y="248" font-family="Times New Roman" font-size="12" fill="#111">{{loanAmount}}</text>
-  <text x="16" y="258" font-family="Times New Roman" font-size="11" fill="#111">{{dateText}}</text>
-  <text x="16" y="268" font-family="Times New Roman" font-size="10" fill="#111">{{referenceNumber}}</text>
+    <!-- Finance Memorandum -->
+    <text x="105" y="195"
+          font-family="Raleway"
+          font-size="7"
+          letter-spacing="1.2">
+      FINANCE MEMORANDUM
+    </text>
 
-  <text x="16" y="282" font-family="Times New Roman" font-size="9" fill="#111">{{companyLine}}</text>
+    <!-- Construction Finance -->
+    <text x="105" y="215"
+          font-family="Raleway"
+          font-size="11"
+          letter-spacing="0.8">
+      {{HEADLINE}}
+    </text>
+
+    <!-- Project Name -->
+    <text x="105" y="230"
+          font-family="Merriweather"
+          font-size="14"
+          font-weight="bold">
+      {{PROJECT_NAME}}
+    </text>
+
+    <!-- Loan Amount -->
+    <text x="105" y="244"
+          font-family="Merriweather"
+          font-size="13"
+          font-weight="bold">
+      {{LOAN_AMOUNT}}
+    </text>
+
+    <!-- Date -->
+    <text x="105" y="255"
+          font-family="Raleway"
+          font-size="6"
+          letter-spacing="1">
+      {{DATE}}
+    </text>
+
+    <!-- Reference -->
+    <text x="105" y="262"
+          font-family="Raleway"
+          font-size="6"
+          letter-spacing="1">
+      {{REFERENCE_NUMBER}}
+    </text>
+
+    <!-- Company line lowered to match baseline -->
+    <text x="105" y="285"
+          font-family="Raleway"
+          font-size="6"
+          letter-spacing="0.8">
+      {{COMPANY_LINE}}
+    </text>
+
+  </g>
 </svg>
+
