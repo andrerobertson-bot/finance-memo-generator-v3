@@ -1,165 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="210mm" height="297mm"
-     viewBox="0 0 210 297"
-     xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="210mm" height="297mm" viewBox="0 0 210 297">
 
   <defs>
-    <style>
-      /* Font-lock: use bundled TTFs so Chromium cannot substitute */
-      @font-face {
-        font-family: "Raleway";
-        src: url("/fonts/Raleway-Regular.ttf") format("truetype");
-        font-weight: 400;
-        font-style: normal;
+    <style><![CDATA[
+      /* --- Embed exact font weights so Playwright/Chromium can't "guess" --- */
+      @font-face{
+        font-family:"Merriweather";
+        src:url("/fonts/Merriweather-Regular.ttf") format("truetype");
+        font-weight:400;
+        font-style:normal;
       }
-      @font-face {
-        font-family: "Raleway";
-        src: url("/fonts/Raleway-Medium.ttf") format("truetype");
-        font-weight: 500;
-        font-style: normal;
+      @font-face{
+        font-family:"Merriweather";
+        src:url("/fonts/Merriweather-Black.ttf") format("truetype");
+        font-weight:900;
+        font-style:normal;
       }
-      @font-face {
-        font-family: "Raleway";
-        src: url("/fonts/Raleway-SemiBold.ttf") format("truetype");
-        font-weight: 600;
-        font-style: normal;
+      @font-face{
+        font-family:"Merriweather";
+        src:url("/fonts/Merriweather-BlackItalic.ttf") format("truetype");
+        font-weight:900;
+        font-style:italic;
       }
 
-      @font-face {
-        font-family: "Merriweather";
-        src: url("/fonts/Merriweather-Regular.ttf") format("truetype");
-        font-weight: 400;
-        font-style: normal;
+      @font-face{
+        font-family:"Raleway";
+        src:url("/fonts/Raleway-Regular.ttf") format("truetype");
+        font-weight:400;
+        font-style:normal;
       }
-      @font-face {
-        font-family: "Merriweather";
-        src: url("/fonts/Merriweather-Black.ttf") format("truetype");
-        font-weight: 900;
-        font-style: normal;
+      @font-face{
+        font-family:"Raleway";
+        src:url("/fonts/Raleway-Medium.ttf") format("truetype");
+        font-weight:500;
+        font-style:normal;
       }
-      @font-face {
-        font-family: "Merriweather";
-        src: url("/fonts/Merriweather-BlackItalic.ttf") format("truetype");
-        font-weight: 900;
-        font-style: italic;
+      @font-face{
+        font-family:"Raleway";
+        src:url("/fonts/Raleway-SemiBold.ttf") format("truetype");
+        font-weight:600;
+        font-style:normal;
       }
-    </style>
+
+      .blk { fill:#000000; }
+      .g40 { fill:#404040; }
+      .amt { fill:#adb8bf; }
+
+      /* We place text by TOP (not baseline) to match the PDF extraction boxes */
+      text { dominant-baseline:hanging; }
+    ]]></style>
   </defs>
 
-  <!-- Background -->
-  <rect x="0" y="0" width="210" height="297" fill="#ffffff"/>
-
-  <!-- Hero image: pinned to top, never cropped -->
-  <!-- Reference-derived: text block begins ~200mm down; this keeps a similar image region -->
+  <!-- Top cover image (full bleed to top; keep as your system expects) -->
   <image href="{{COVER_IMAGE_URL}}"
-         x="0" y="0"
-         width="210" height="175"
-         preserveAspectRatio="xMidYMin meet" />
+         x="0" y="0" width="210" height="175"
+         preserveAspectRatio="xMidYMid slice" />
 
-  <!-- Lower white zone -->
+  <!-- White lower panel -->
   <rect x="0" y="175" width="210" height="122" fill="#ffffff"/>
 
-  <!-- =========================================================
-       TEXT BLOCK (LOCKED TO REFERENCE PDF)
-       The following font sizes + baselines come from the reference PDF page 1.
-       Sizes are converted from pt -> mm (1mm = 2.83464567pt).
-       Baselines converted from PDF y(pt-from-bottom) -> SVG y(mm-from-top).
-       ========================================================= -->
+  <!-- Typography block positioned to match reference -->
+  <!-- x=69.57mm is what the reference uses for the left edge -->
+  <text x="69.57" y="192.01"
+        font-family="Merriweather" font-weight="400" font-style="normal"
+        font-size="23.04pt" class="blk">{{LENDER_NAME}}</text>
 
-  <!-- Common X start from reference PDF: x ≈ 69.57mm -->
-  <!-- Global Capital Commercial -->
-  <text x="69.57" y="200.00"
-        font-family="Merriweather"
-        font-size="8.128mm"
-        font-weight="400"
-        fill="#111111"
-        text-anchor="start">
-    {{title}}
+  <text x="69.57" y="205.59"
+        font-family="Merriweather" font-weight="900" font-style="italic"
+        font-size="21.96pt" class="blk">Confidential</text>
+
+  <text x="69.57" y="214.41"
+        font-family="Merriweather" font-weight="900" font-style="italic"
+        font-size="21.96pt" class="blk">Finance Memorandum</text>
+
+  <text x="69.57" y="227.66"
+        font-family="Merriweather" font-weight="900" font-style="normal"
+        font-size="14.04pt" class="blk">Construction Finance</text>
+
+  <text x="69.57" y="241.55"
+        font-family="Raleway" font-weight="600" font-style="normal"
+        font-size="14.04pt" class="g40">{{PROJECT_NAME}}</text>
+
+  <text x="69.57" y="253.99"
+        font-family="Raleway" font-weight="600" font-style="normal"
+        font-size="14.04pt" class="amt">{{LOAN_AMOUNT}}</text>
+
+  <text x="69.57" y="266.69"
+        font-family="Raleway" font-weight="400" font-style="normal"
+        font-size="8.04pt" class="g40">Our Reference Number:</text>
+
+  <text x="101.50" y="266.37"
+        font-family="Raleway" font-weight="500" font-style="normal"
+        font-size="9pt" class="g40">{{REFERENCE_NUMBER}}</text>
+
+  <!-- Footer (keep simple for now; can tighten once main block is 1:1) -->
+  <text x="10" y="289.6"
+        font-family="Raleway" font-weight="500" font-size="9pt"
+        fill="#00a7c6" letter-spacing="1.6">globalcapital.com.au</text>
+
+  <text x="10" y="294.0"
+        font-family="Raleway" font-weight="400" font-size="7.5pt"
+        fill="#404040">
+    Global Capital Corporation Pty Ltd | ABN 14 097 482 114 | Telephone 612 9222 9100 | info@globalcapital.com.au
   </text>
 
-  <!-- Confidential (BlackItalic) -->
-  <text x="69.57" y="213.20"
-        font-family="Merriweather"
-        font-size="7.747mm"
-        font-weight="900"
-        font-style="italic"
-        fill="#111111"
-        text-anchor="start">
-    {{subOne}}
-  </text>
-
-  <!-- Finance Memorandum (BlackItalic) -->
-  <text x="69.57" y="222.02"
-        font-family="Merriweather"
-        font-size="7.747mm"
-        font-weight="900"
-        font-style="italic"
-        fill="#111111"
-        text-anchor="start">
-    {{subTwo}}
-  </text>
-
-  <!-- Construction Finance (Black) -->
-  <text x="69.57" y="232.52"
-        font-family="Merriweather"
-        font-size="4.953mm"
-        font-weight="900"
-        fill="#111111"
-        text-anchor="start">
-    {{headline}}
-  </text>
-
-  <!-- Project Name (Raleway SemiBold, dark grey) -->
-  <text x="69.57" y="246.19"
-        font-family="Raleway"
-        font-size="4.953mm"
-        font-weight="600"
-        fill="#4a4a4a"
-        text-anchor="start">
-    {{projectName}}
-  </text>
-
-  <!-- Loan Amount (Raleway SemiBold, light grey) -->
-  <text x="69.57" y="258.64"
-        font-family="Raleway"
-        font-size="4.953mm"
-        font-weight="600"
-        fill="#b9bfc6"
-        text-anchor="start">
-    {{loanAmount}}
-  </text>
-
-  <!-- Our Reference Number: (Raleway Regular 8.04pt) + reference code (Raleway Medium 9pt) -->
-  <text x="69.57" y="269.35"
-        font-family="Raleway"
-        font-size="2.836mm"
-        font-weight="400"
-        fill="#111111"
-        text-anchor="start">
-    Our Reference Number:
-    <tspan font-weight="500" font-size="3.175mm" x="101.50">{{referenceNumber}}</tspan>
-  </text>
-
-  <!-- Optional date line if you want it on cover (keep same style as reference meta) -->
-  <!-- Uncomment if needed:
-  <text x="69.57" y="276.80"
-        font-family="Raleway"
-        font-size="2.836mm"
-        font-weight="400"
-        fill="#111111"
-        text-anchor="start">
-    {{dateText}}
-  </text>
-  -->
-
-  <!-- Footer link (if you want it styled like the reference, keep token-driven) -->
-  <text x="69.57" y="288.80"
-        font-family="Raleway"
-        font-size="3.175mm"
-        font-weight="400"
-        fill="#00a9c7"
-        text-anchor="start">
-    {{companyLine}}
+  <text x="10" y="296.5"
+        font-family="Raleway" font-weight="400" font-size="7.5pt"
+        fill="#404040">
+    Level 43 Governor Phillip Tower, 1 Farrer Place Sydney, NSW Australia 2000 | PO Box R196 Royal Exchange NSW 1225
   </text>
 
 </svg>
