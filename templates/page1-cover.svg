@@ -6,70 +6,80 @@
   <!-- Background -->
   <rect x="0" y="0" width="210" height="297" fill="#ffffff"/>
 
-  <!-- Hero Image (NO CROP). 
-       Height tuned; adjust 165 -> 160/170 if needed to match reference exactly. -->
+  <!-- Hero image: NO CROP, but ANCHORED TO TOP.
+       Any letterboxing (if needed) will go to the BOTTOM, not the top. -->
   <image href="{{COVER_IMAGE_URL}}"
          x="0" y="0"
          width="210" height="165"
-         preserveAspectRatio="xMidYMid meet" />
+         preserveAspectRatio="xMidYMin meet" />
 
   <!-- Lower area background -->
   <rect x="0" y="165" width="210" height="132" fill="#ffffff"/>
 
-  <!-- Left aligned text block -->
-  <!-- Baseline positions are in mm units in the viewBox (1 unit = 1mm). -->
+  <!-- Left-aligned text block -->
   <g fill="#111111" text-anchor="start">
 
-    <!-- These are styled like the reference (no logo-like tracking). -->
-    <text x="16" y="187"
+    <!-- Confidential -->
+    <text x="16" y="186.5"
           font-family="Raleway, Arial, sans-serif"
-          font-size="6.2">
+          font-size="5.6"
+          font-weight="400">
       {{subOne}}
     </text>
 
-    <text x="16" y="195.5"
+    <!-- Finance Memorandum -->
+    <text x="16" y="193.8"
           font-family="Raleway, Arial, sans-serif"
-          font-size="7.0">
+          font-size="6.6"
+          font-weight="400">
       {{subTwo}}
     </text>
 
-    <!-- Slightly larger gap before headline, like the reference rhythm -->
-    <text x="16" y="213.5"
+    <!-- Larger gap before headline (matches reference rhythm) -->
+    <text x="16" y="209.5"
           font-family="Raleway, Arial, sans-serif"
-          font-size="11.2">
+          font-size="10.4"
+          font-weight="400">
       {{headline}}
     </text>
 
-    <text x="16" y="229.5"
+    <!-- Project Name (smaller + controlled bold) -->
+    <text x="16" y="223.5"
           font-family="Merriweather, Georgia, serif"
-          font-size="14.2"
+          font-size="12.2"
           font-weight="700">
       {{projectName}}
     </text>
 
-    <text x="16" y="244.0"
+    <!-- Loan Amount (smaller + controlled bold) -->
+    <text x="16" y="236.0"
           font-family="Merriweather, Georgia, serif"
-          font-size="13.4"
+          font-size="11.8"
           font-weight="700">
       {{loanAmount}}
     </text>
 
-    <text x="16" y="255.2"
+    <!-- Date -->
+    <text x="16" y="246.0"
           font-family="Raleway, Arial, sans-serif"
-          font-size="6.2">
+          font-size="5.6"
+          font-weight="400">
       {{dateText}}
     </text>
 
-    <text x="16" y="263.0"
+    <!-- Reference -->
+    <text x="16" y="253.0"
           font-family="Raleway, Arial, sans-serif"
-          font-size="6.2">
+          font-size="5.6"
+          font-weight="400">
       {{referenceNumber}}
     </text>
 
-    <!-- Company line lowered closer to the bottom like the reference -->
-    <text x="16" y="285.5"
+    <!-- Company line: lowered -->
+    <text x="16" y="284.0"
           font-family="Raleway, Arial, sans-serif"
-          font-size="6.0">
+          font-size="5.4"
+          font-weight="400">
       {{companyLine}}
     </text>
 
