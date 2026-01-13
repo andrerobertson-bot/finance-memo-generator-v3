@@ -1,87 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="210mm" height="297mm"
      viewBox="0 0 210 297"
-     xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink">
+     xmlns="http://www.w3.org/2000/svg">
 
   <!-- Background -->
-  <rect width="210" height="297" fill="white"/>
+  <rect x="0" y="0" width="210" height="297" fill="#ffffff"/>
 
-  <!-- Cover Image (autofit, no crop). 
-       Height reduced to better match reference -->
-  <image x="0" y="0"
-         width="210"
-         height="165"
-         preserveAspectRatio="xMidYMid meet"
-         xlink:href="{{COVER_IMAGE_PATH}}"/>
+  <!-- Hero Image (NO CROP). 
+       Height tuned; adjust 165 -> 160/170 if needed to match reference exactly. -->
+  <image href="{{COVER_IMAGE_URL}}"
+         x="0" y="0"
+         width="210" height="165"
+         preserveAspectRatio="xMidYMid meet" />
 
-  <!-- Text Block Group -->
-  <g fill="#111111" text-anchor="middle">
+  <!-- Lower area background -->
+  <rect x="0" y="165" width="210" height="132" fill="#ffffff"/>
 
-    <!-- Confidential -->
-    <text x="105" y="185"
-          font-family="Raleway"
-          font-size="6"
-          letter-spacing="1.5">
-      CONFIDENTIAL
+  <!-- Left aligned text block -->
+  <!-- Baseline positions are in mm units in the viewBox (1 unit = 1mm). -->
+  <g fill="#111111" text-anchor="start">
+
+    <!-- These are styled like the reference (no logo-like tracking). -->
+    <text x="16" y="187"
+          font-family="Raleway, Arial, sans-serif"
+          font-size="6.2">
+      {{subOne}}
     </text>
 
-    <!-- Finance Memorandum -->
-    <text x="105" y="195"
-          font-family="Raleway"
-          font-size="7"
-          letter-spacing="1.2">
-      FINANCE MEMORANDUM
+    <text x="16" y="195.5"
+          font-family="Raleway, Arial, sans-serif"
+          font-size="7.0">
+      {{subTwo}}
     </text>
 
-    <!-- Construction Finance -->
-    <text x="105" y="215"
-          font-family="Raleway"
-          font-size="11"
-          letter-spacing="0.8">
-      {{HEADLINE}}
+    <!-- Slightly larger gap before headline, like the reference rhythm -->
+    <text x="16" y="213.5"
+          font-family="Raleway, Arial, sans-serif"
+          font-size="11.2">
+      {{headline}}
     </text>
 
-    <!-- Project Name -->
-    <text x="105" y="230"
-          font-family="Merriweather"
-          font-size="14"
-          font-weight="bold">
-      {{PROJECT_NAME}}
+    <text x="16" y="229.5"
+          font-family="Merriweather, Georgia, serif"
+          font-size="14.2"
+          font-weight="700">
+      {{projectName}}
     </text>
 
-    <!-- Loan Amount -->
-    <text x="105" y="244"
-          font-family="Merriweather"
-          font-size="13"
-          font-weight="bold">
-      {{LOAN_AMOUNT}}
+    <text x="16" y="244.0"
+          font-family="Merriweather, Georgia, serif"
+          font-size="13.4"
+          font-weight="700">
+      {{loanAmount}}
     </text>
 
-    <!-- Date -->
-    <text x="105" y="255"
-          font-family="Raleway"
-          font-size="6"
-          letter-spacing="1">
-      {{DATE}}
+    <text x="16" y="255.2"
+          font-family="Raleway, Arial, sans-serif"
+          font-size="6.2">
+      {{dateText}}
     </text>
 
-    <!-- Reference -->
-    <text x="105" y="262"
-          font-family="Raleway"
-          font-size="6"
-          letter-spacing="1">
-      {{REFERENCE_NUMBER}}
+    <text x="16" y="263.0"
+          font-family="Raleway, Arial, sans-serif"
+          font-size="6.2">
+      {{referenceNumber}}
     </text>
 
-    <!-- Company line lowered to match baseline -->
-    <text x="105" y="285"
-          font-family="Raleway"
-          font-size="6"
-          letter-spacing="0.8">
-      {{COMPANY_LINE}}
+    <!-- Company line lowered closer to the bottom like the reference -->
+    <text x="16" y="285.5"
+          font-family="Raleway, Arial, sans-serif"
+          font-size="6.0">
+      {{companyLine}}
     </text>
 
   </g>
 </svg>
-
