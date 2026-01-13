@@ -23,12 +23,20 @@ app.use(compression());
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// Serve UI
-app.use(express.static(path.join(__dirname, "..", "public")));
+// Serve UI (static)
+const PUBLIC_DIR = path.join(__dirname, "..", "public");
+app.use(express.static(PUBLIC_DIR));
 
-// Health + version (proves what's running)
+// IMPORTANT: Ensure "/" always serves the UI (prevents "Cannot GET /")
+app.get("/", (req, res) => {
+  res.sendFile(path.join(PUBLIC_DIR, "index.html"));
+});
+
+// Health endpoints (use one of these for Render health checks)
 app.get("/health", (req, res) => res.status(200).send("OK"));
+app.get("/healthz", (req, res) => res.status(200).send("OK"));
 
+// Version endpoint
 app.get("/version", (req, res) => {
   res.json({
     name: "finance-memo-generator-v3",
